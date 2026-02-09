@@ -1,5 +1,3 @@
-# save this as app.py and run with: streamlit run app.py
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -50,7 +48,7 @@ input_dict = {
     "time_spend_company": time_spend_company,
     "Work_accident": work_accident,
     "promotion_last_5years": promotion_last_5years,
-    "Department": department,
+    "department": department,
     "salary": salary
 }
 
@@ -80,15 +78,3 @@ risk_zone = categorize(prob)
 st.subheader("Prediction Results")
 st.write(f"**Turnover Probability:** {prob:.2f}")
 st.write(f"**Risk Zone:** {risk_zone}")
-
-# Pie chart example (distribution from test data)
-import matplotlib.pyplot as plt
-
-y_prob = model.predict_proba(X_test)[:,1]
-zones = pd.Series(y_prob).apply(categorize)
-counts = zones.value_counts()
-
-fig, ax = plt.subplots()
-ax.pie(counts, labels=counts.index, autopct='%1.1f%%', colors=["green","yellow","orange","red"], startangle=140)
-ax.set_title("Turnover Risk Distribution (Test Data)")
-st.pyplot(fig)
