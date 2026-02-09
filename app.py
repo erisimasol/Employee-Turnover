@@ -38,7 +38,7 @@ average_montly_hours = st.number_input("Average Monthly Hours", min_value=50, ma
 time_spend_company = st.number_input("Years at Company", min_value=1, max_value=20, value=3)
 work_accident = st.selectbox("Work Accident", [0,1])
 promotion_last_5years = st.selectbox("Promotion in Last 5 Years", [0,1])
-department = st.selectbox("Department", df['Department'].unique())
+department = st.selectbox("Department", df['department'].unique())
 salary = st.selectbox("Salary Level", df['salary'].unique())
 
 # Prepare input row
